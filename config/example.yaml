@@ -1,0 +1,42 @@
+environment: development
+
+server:
+  host: 0.0.0.0
+  port: 8080
+  read_timeout: 15s
+  write_timeout: 15s
+  shutdown_timeout: 5s
+
+grpc:
+  detector_url: "127.0.0.1:8081"
+
+kafka_producer:
+  broker: "localhost:9092"
+
+internal_token: dfbknskjnblijnijnfbdfkvjnsdkfjnbskdjgbkjnfb
+
+postgres:
+  host: 127.0.0.1
+  port: 5432
+  user: "root"
+  password: "dbpassword123"
+  dbname: "diprec_db"
+  sslmode: "disable"
+  max_open_conns: 10
+  max_idle_conns: 5
+  conn_max_lifetime: "30m"
+
+auth:
+  jwt_secret: "dummy_jwt_secret_123"
+  access_token_expire: "15m"
+  refresh_token_expire: "168h" # 7 дней
+  password_cost: 10
+
+logging:
+  level: "debug"
+  json_format: false
+  log_file_path: "/app/logs/app.log"
+  rotation_policy:
+    max_size: 100 # MB
+    max_backups: 3
+    max_age: 30 # days
